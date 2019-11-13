@@ -1,13 +1,19 @@
 <template>
-    <div class="secao">
-        <h1 id="titulo">{{ titulo }}</h1>
-        <div id="caixa" v-for="place in places" :key="place.id">
+    <div class="section">
+        <h1 id="title">{{ title }}</h1>
+        <div id="box" v-for="place in places" :key="place.id">
             <p>Nome do prato</p>
-            <input type="text"/>
+            <label>
+                <input type="text"/>
+            </label>
             <p>Valor</p>
-            <input type="number"/>
+            <label>
+                <input type="number"/>
+            </label>
             <p>Descricao do prato</p>
-            <textarea type="text"/>
+            <label>
+                <textarea type="text"></textarea>
+            </label>
             <p>*A Descricao deve conter até 200 caracteres</p>
         </div>
     </div>
@@ -15,22 +21,21 @@
 
 <script>
     export default {
-        name: 'titulo',
+        name: 'title',
         data () {
             return {
-                titulo: 'Form',
-                descricao: '6 lugares cadastrados'
+                title: 'Form',
+                description: '6 lugares cadastrados'
             }
         }
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .secao {
+    .section {
         text-align: center;
     }
-    #titulo {
+    #title {
         font-family: Courier, "Lucida Console", monospace;
         font-weight: bold;
         font-size: 200%;

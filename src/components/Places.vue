@@ -1,23 +1,23 @@
 <template>
-    <div class="secao">
-        <h1 id="titulo">{{ titulo }}</h1>
-        <p>{{ descricao }}</p>
-        <div id="caixa" v-for="place in places" :key="place.id">
-            <p id="lugar" {{ place.name }}></p>
+    <div class="section">
+        <h1 id="title">{{ title }}</h1>
+        <p>{{ description }}</p>
+        <div id="box" v-for="place in places" :key="place.id">
+            <p id="place" {{ place.name }}></p>
             <p>23 pratos</p>
         </div>
-        <button class="botao" v-on:click="$emit()">+</button>
+        <button class="button" v-on:click="$emit()">+</button>
     </div>
 </template>
 
 <script>
     import placesService from '../services/places'
     export default {
-        name: 'titulo',
+        name: 'title',
         data () {
             return {
-                titulo: 'Lugares',
-                descricao: '6 lugares cadastrados'
+                title: 'Lugares',
+                description: '6 lugares cadastrados'
             }
         },
         mounted () {
@@ -29,12 +29,11 @@
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .secao {
+    .section {
         text-align: center;
     }
-    #titulo {
+    #title {
         font-family: Courier, "Lucida Console", monospace;
         font-weight: bold;
         font-size: 200%;
@@ -46,7 +45,7 @@
         color: #FFFFFF;
         opacity: 1;
     }
-    #caixa {
+    #box {
         width: 400px;
         height: 100px;
         background: #333333 0% 0% no-repeat padding-box;
@@ -54,7 +53,7 @@
         border-radius: 8px;
         opacity: 1;
     }
-    .botao {
+    .button {
         position: relative;
         border: none;
         border-radius: 50px;
@@ -68,7 +67,7 @@
         margin-left: 15px;
         margin-right: 15px;
     }
-    #lugar {
+    #place {
         padding: 10px;
         margin-top: 20px;
         font-weight: bold;
