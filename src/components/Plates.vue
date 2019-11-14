@@ -16,17 +16,18 @@
     import platesService from '../services/plates'
     export default {
         name: 'title',
-        data () {
+        data() {
             return {
                 title: 'Silva Lanches',
                 description: '23 pratos'
             }
         },
-        mounted () {
+        mounted() {
             platesService.getPlates()
                 .then((plates) => {
                     this.$set(this, 'plates', plates)
                 })
+        }
     }
 </script>
 

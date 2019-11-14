@@ -1,7 +1,7 @@
 <template>
     <div class="section">
         <h1 id="title">{{ title }}</h1>
-        <div id="box" v-for="place in places" :key="place.id">
+        <div id="box" v-for="plate in plates" :key="plate.id">
             <p>Nome do prato</p>
             <label>
                 <input type="text"/>
@@ -20,13 +20,13 @@
 </template>
 
 <script>
+    import platesService from '../services/plates'
     export default {
-        name: 'title',
-        data () {
-            return {
-                title: 'Form',
-                description: '6 lugares cadastrados'
-            }
+        mounted () {
+            platesService.save()
+                .then((plates) => {
+                    this.$set(this, 'plates', plates)
+                })
         }
     }
 </script>
