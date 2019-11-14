@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Places from '@/components/Places'
 import Plates from '@/components/Plates'
-import Form from '@/components/Form'
+import Form from '@/components/Cadastro'
 
 Vue.use(Router);
 
@@ -25,8 +25,8 @@ export default new Router({
         },
         {
             path: '/cadastrar',
-            name: 'Form',
-            component: Form
+            name: 'Cadastro',
+            component: Cadastro
         }
     ]
 })
