@@ -14,15 +14,21 @@
     import placesService from '../services/places'
     export default {
         name: 'Place',
-        data () {
-            return {
-                title: 'Lugares',
-                description: '6 lugares cadastrados'
+        props:{
+            name:{
+                type:String
             }
         },
+        data: () =>({
+                name:"",
+                title: 'Lugares',
+                description: '6 lugares cadastrados'
+
+        }),
         mounted () {
             placesService.getPlaces()
-                .then((places) => {
+                .then(response => {
+                    let place = response.data;
                     this.$set(this, 'places', places)
                 })
         }

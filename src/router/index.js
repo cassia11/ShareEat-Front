@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Places from '@/components/Places'
 import Plates from '@/components/Plates'
-import Form from '@/components/Cadastro'
+import Cadastro from '@/components/Cadastro'
 
 Vue.use(Router);
 
