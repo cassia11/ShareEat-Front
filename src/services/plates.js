@@ -1,9 +1,7 @@
 import axios from 'axios'
 
 export default {
-    save: (plate) => axios.post('/cadastrar/', plate)
-        .then(response => alert('salvo com sucesso'))
-        .catch(error => alert('ocorreu um erro'))
+    save: (plate) => axios.post(`/pratos/`, plate)
 }
 
 export default {

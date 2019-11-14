@@ -15,7 +15,7 @@
 <script>
     import platesService from '../services/plates'
     export default {
-        name: 'title',
+        name: 'Plate',
         data() {
             return {
                 title: 'Silva Lanches',

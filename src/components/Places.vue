@@ -13,7 +13,7 @@
 <script>
     import placesService from '../services/places'
     export default {
-        name: 'title',
+        name: 'Place',
         data () {
             return {
                 title: 'Lugares',
