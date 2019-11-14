@@ -1,11 +1,11 @@
-import http from '../utils/http'
+import axios from 'axios'
 
 export default {
-    save: (plate) => http.post('/cadastrar/', plate)
+    save: (plate) => axios.post('/cadastrar/', plate)
         .then(response => alert('salvo com sucesso'))
         .catch(error => alert('ocorreu um erro'))
 }
 
 export default {
-    getPlates : (id) => http.get(`/${id}/pratos`)
+    getPlates : (id) => axios.get(`/${id}/pratos`)
 }

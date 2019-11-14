@@ -2,9 +2,10 @@
     <div class="section">
         <h1 id="title">{{ title }}</h1>
         <p>{{ description }}</p>
-        <div id="box" v-for="place in places" :key="place.id">
-            <p id="place" {{ place.name }}></p>
-            <p>23 pratos</p>
+        <div id="box" v-for="plate in plates" :key="plate.id">
+            <p id="plate" {{ plate.name }}></p>
+            <p id="plateDescription" {{ plate.description }}></p>
+            <p id="plateValue" {{ plate.value }}></p>
         </div>
         <button class="button" v-on:click="$emit()">+</button>
     </div>
@@ -12,14 +13,20 @@
 </template>
 
 <script>
+    import platesService from '../services/plates'
     export default {
         name: 'title',
         data () {
             return {
-                title: 'Lugares',
-                description: '6 lugares cadastrados'
+                title: 'Silva Lanches',
+                description: '23 pratos'
             }
-        }
+        },
+        mounted () {
+            platesService.getPlates()
+                .then((plates) => {
+                    this.$set(this, 'plates', plates)
+                })
     }
 </script>
 
