@@ -1,11 +1,17 @@
 <template>
     <div class="section">
-        <h1 id="title">{{ title }}</h1>
-        <p>{{ description }}</p>
+        <div class="question question-history"
+                v-for="place in places" :key="place.id"
+                v-bind:key="answeredQuestion.description">
+            <b-row>
+             <h1 id="title"> {{place.name}}</h1>
+                <p id="place" {{ place.plates_qtd }}></p>
+            </b-row>
+        </div>
         <div id="box" v-for="plate in plates" :key="plate.id">
-            <p id="plate" {{ plate.name }}></p>
-            <p id="plateDescription" {{ plate.description }}></p>
+            <h3 id="plate" {{ plate.name }}>R$</h3>
             <p id="plateValue" {{ plate.value }}></p>
+            <p id="plateDescription" {{ plate.description }}></p>
         </div>
         <button class="button" v-on:click="$emit()">+</button>
     </div>
