@@ -23,8 +23,8 @@
         name: 'Plate',
         data() {
             return {
-                places,
-                plates
+                places: [],
+                plates: []
             }
        },
         mounted() {

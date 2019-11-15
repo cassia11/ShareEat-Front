@@ -3,8 +3,8 @@
     <h1 id="title">{{ title }}</h1>
     <p>{{ description }}</p>
     <div id="box" v-for="place in places" :key="place.id">
-      <p id="name" {{ place.name }}></p>
-      <p id="qtd" {{ place.plates_qtd }}></p>
+      <p id="name">{{ place.name }}</p>
+      <p id="qtd">{{ place.plates_qtd }}</p>
     </div>
     <button class="button" v-on:click="$emit()">+</button>
   </div>
@@ -14,23 +14,16 @@
 import placesService from "../services/places";
 export default {
   name: "Place",
-  props: {
-    name: {
-      type: String
-    }
-  },
   data: () => ({
-    name: "",
     title: "Lugares",
     description: "6 lugares cadastrados",
-    places
+    places: []
   }),
-  mounted() {
-    placesService.getPlaces().then(
-      (res_places => {
-        this.$set(this, "places", res_places);
-      }).bind(this)
-    );
+  created() {
+    placesService.getPlaces().then(response => {
+      this.places = response.data
+      }).catch((error) => {
+    });
   }
 };
 </script>
