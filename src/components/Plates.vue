@@ -1,8 +1,7 @@
 <template>
     <div class="section">
         <div class="question question-history"
-                v-for="place in places" :key="place.id"
-                v-bind:key="answeredQuestion.description">
+                v-for="place in places" :key="place.id">
             <b-row>
              <h1 id="title"> {{place.name}}</h1>
                 <p id="place" {{ place.plates_qtd }}></p>
@@ -24,10 +23,10 @@
         name: 'Plate',
         data() {
             return {
-                title: 'Silva Lanches',
-                description: '23 pratos'
+                places,
+                plates
             }
-        },
+       },
         mounted() {
             platesService.getPlates()
                 .then((plates) => {
