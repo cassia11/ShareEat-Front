@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <h3 id="principal">share eat</h3>
     <router-view/>
   </div>
