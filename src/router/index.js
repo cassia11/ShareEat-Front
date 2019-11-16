@@ -19,7 +19,7 @@ export default new Router({
             component: Plates
         },
         {
-            path: '/cadastrar',
+            path: '/:id/cadastrar',
             name: 'Cadastro',
             component: Cadastro
         }
