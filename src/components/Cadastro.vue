@@ -2,7 +2,7 @@
   <div class="container">
     <h1 id="title">{{ title }}</h1>
     <div id="box container">
-      <b-form @submit="submitForm">
+      <b-form>
         <label class="text">Nome do Prato</label>
         <b-input placeholder="Prato" id="name" type="text" required v-model.trim="form.name"></b-input>
         <label class="text">Valor</label>
@@ -22,7 +22,7 @@
         <b-container fluid>
           <b-row class="mb-3">
             <b-col md="1.5" class="ml-md-auto">
-              <b-button type="submit" squared class="answer-btn mt-20">Salvar</b-button>
+              <b-button @click="submitForm(), redirect()" squared class="answer-btn mt-20">Salvar</b-button>
             </b-col>
           </b-row>
         </b-container>
@@ -46,9 +46,13 @@ export default {
   }),
   methods: {
     submitForm() {
-      this.form.places_id = this.$route.params.id
+      let place  = this.$route.params.id
+      this.form.places_id = place
       platesService.save(this.form)
-      
+    },
+    redirect(){
+      let place  = this.$route.params.id
+      this.$router.push({ name: 'Plates', params: { id: place }})
     }
   },
   created() {
