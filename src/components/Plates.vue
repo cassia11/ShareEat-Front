@@ -1,11 +1,13 @@
 <template>
   <div class="section">
-    <div class="question question-history">
-      <h1 id="title">{{ this.place.name }}</h1>
+    <div v-for="p in place" :key="p.id">
+      <h1 id="title">{{ p.name }}</h1>
+      <p class="text_plate" v-if="qtd == 1">{{ qtd }} prato</p>
+      <p class="text_plate" v-else>{{ qtd }} pratos</p>
     </div>
     <div id="box" v-for="plate in plates" :key="plate.id">
       <br />
-      <h3 class="text_plate">{{ plate.name }}</h3>
+      <h3 class="text_plate place">{{ plate.name }}</h3>
       <p class="text_plate">{{ plate.value }} R$</p>
       <p class="text_plate">{{ plate.description }}</p>
       <br />
@@ -23,7 +25,8 @@ export default {
   data() {
     return {
       place: {},
-      plates: []
+      plates: [],
+      qtd: null
     };
   },
   created() {
@@ -31,6 +34,7 @@ export default {
       .getPlates(this.$route.params.id)
       .then(response => {
         this.plates = response.data;
+        this.qtd = response.data.length;
       })
       .catch(error => {});
 
@@ -38,7 +42,6 @@ export default {
       .getPlaceId(this.$route.params.id)
       .then(response => {
         this.place = response.data;
-        console.log(place);
       })
       .catch(error => {});
   }
