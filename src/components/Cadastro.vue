@@ -1,51 +1,84 @@
-<template>
-    <div class="section">
-        <h1 id="title">{{ title }}</h1>
-        <div id="box" v-for="plate in plates" :key="plate.id">
-            <label class="mt-20">Nome do Prato</label>
-            <b-input placeholder="Prato" id="input" v-model="form.comments"></b-input>
-            <label class="mt-20">Valor</label>
-            <b-input placeholder="0,00" id="input" v-model="form.value"></b-input>R$
-            <label class="mt-20">Descrição do Prato</label>
-            <b-input placeholder="Insira uma descrição" id="input" v-model="form.description"></b-input>R$
-            <p>*A Descricao deve conter até 200 caracteres</p>
-            <b-container fluid>
-                <b-row class="mb-3">
-                    <b-col md="1.5" class="ml-md-auto">
-                        <b-button squared type="submit"
-                                  class="answer-btn mt-20">Salvar
-                        </b-button>
-                    </b-col>
-                </b-row>
-            </b-container>
-        </div>
+<template class="container">
+  <div class="container">
+    <h1 id="title">{{ title }}</h1>
+    <div id="box container">
+      <b-form @submit="submitForm">
+        <label class="text">Nome do Prato</label>
+        <b-input placeholder="Prato" id="name" type="text" required v-model.trim="form.name"></b-input>
+        <label class="text">Valor</label>
+        <b-input-group prepend="R$ " class="mb-2 mr-sm-2 mb-sm-0">
+          <b-input placeholder="0,00" type="number" id="value" v-model.number="form.value"></b-input>
+        </b-input-group>
+        <label class="text">Descrição do Prato</label>
+        <b-textarea
+          rows="4"
+          max-rows="6"
+          maxlength="200"
+          placeholder="Insira uma descrição"
+          id="description"
+          v-model.trim="form.description"
+        ></b-textarea>
+        <p class="text">*A descrição deve conter até 200 caracteres.</p>
+        <b-container fluid>
+          <b-row class="mb-3">
+            <b-col md="1.5" class="ml-md-auto">
+              <b-button type="submit" squared class="answer-btn mt-20">Salvar</b-button>
+            </b-col>
+          </b-row>
+        </b-container>
+      </b-form>
     </div>
+  </div>
 </template>
 
 <script>
-    import platesService from '../services/plates'
-    export default {
-        data: () => ({
-            form : {
-                comments: "",
-                value: 0,
-                description:""
-            },
-            submitForm() {
-                platesService.save(this.form)
-            },
-                })
+import platesService from "../services/plates";
+import placesService from "../services/places";
+export default {
+  data: () => ({
+    title: "",
+    form: {
+      name: "",
+      value: null,
+      description: "",
+      places_id: null
     }
+  }),
+  methods: {
+    submitForm() {
+      this.form.places_id = this.$route.params.id
+      platesService.save(this.form)
+      
+    }
+  },
+  created() {
+    placesService
+      .getPlaceId(this.$route.params.id)
+      .then(response => {
+        response.data.forEach(e => {
+          this.title = e.name;
+        });
+      })
+      .catch(error => {});
+  }
+};
 </script>
 
 <style scoped>
-    .section {
-        text-align: center;
-    }
-    #title {
-        font-family: Courier, "Lucida Console", monospace;
-        font-weight: bold;
-        font-size: 200%;
-        color: #F3AA00;
-    }
+.section {
+  text-align: center;
+}
+#title {
+  font-family: Courier, "Lucida Console", monospace;
+  font-weight: bold;
+  font-size: 200%;
+  color: #f3aa00;
+}
+.text {
+  text-align: center;
+  font-family: "Gill Sans Extrabold", Helvetica, sans-serif;
+  color: #ffffff;
+  opacity: 1;
+  text-align: center;
+}
 </style>
