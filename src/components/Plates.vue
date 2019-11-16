@@ -8,7 +8,7 @@
     <div id="box" v-for="plate in plates" :key="plate.id">
       <br />
       <h3 class="text_plate place">{{ plate.name }}</h3>
-      <p class="text_plate">{{ plate.value }} R$</p>
+      <p class="text_plate col">{{ plate.value }} R$</p>
       <p class="text_plate">{{ plate.description }}</p>
       <br />
     </div>
@@ -18,7 +18,6 @@
 <script>
 import platesService from "../services/plates";
 import placesService from "../services/places";
-import places from "../services/places";
 
 export default {
   name: "Plate",
