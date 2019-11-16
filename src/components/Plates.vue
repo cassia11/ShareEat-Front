@@ -33,15 +33,15 @@ export default {
     platesService
       .getPlates(this.$route.params.id)
       .then(response => {
-        this.plates = response.data;
-        this.qtd = response.data.length;
+        this.plates = response.data
+        this.qtd = response.data.length
       })
       .catch(error => {});
 
     placesService
       .getPlaceId(this.$route.params.id)
       .then(response => {
-        this.place = response.data;
+        this.place = response.data
       })
       .catch(error => {});
   }
