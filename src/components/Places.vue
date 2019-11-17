@@ -7,8 +7,6 @@
     <p class="text-white text-center" v-else>{{ description }} lugares cadastrados</p>
 
     <div v-for="place in places" :key="place.id">
-      <b-row>
-        <b-col>
           <div class="box card text-white bg-dark mb-3" @click="plates(place.id)">
             <div class="card-body">
               <span class="row text-white">
@@ -17,17 +15,12 @@
               <span class="row text-white">{{ place.plates_qtd }} pratos</span>
             </div>
           </div>
-        </b-col>
-
-        <b-col>
           <b-img
             @click="more(place.id)"
             :src="require('../assets/add.png')"
             class="image"
-            alt="Icone de Adicionar mais pratos"
+            alt="Icone deggit Adicionar mais pratos"
           ></b-img>
-        </b-col>
-      </b-row>
     </div>
   </div>
 </template>
