@@ -10,9 +10,20 @@
 
     <div class="box card text-white bg-dark mb-3" v-for="plate in plates" :key="plate.id">
       <div class="card-body">
-        <p class="value"> <b> R$ {{ plate.value }} </b></p>
-        <span class="row text-white"> <b>{{ plate.name }} </b></span>
+        <p class="value">
+          <b>R$ {{ plate.value }}</b>
+        </p>
+        <span class="row text-white">
+          <b>{{ plate.name }}</b>
+        </span>
         <span class="row text-white">{{ plate.description }}</span>
+      </div>
+    </div>
+    <div class="btnMaisBotoes">
+      <div class="col-3 btnMaisBotoesBtn">
+        <button class="btn btn-warning btnCircular btnPrincipal" name="2" @click=" redirect()">
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -26,7 +37,7 @@ export default {
   name: "Plate",
   data() {
     return {
-      place: '',
+      place: "",
       plates: [],
       qtd: null
     };
@@ -46,11 +57,16 @@ export default {
         this.place = response.data[0].name;
       })
       .catch(error => {});
-  }
+  },
+  methods: {
+    redirect() {
+      let cadastro = this.$route.params.id;
+      this.$router.push({ name: "Register", params: { id: cadastro } });
+    }
+  },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #title {
   text-align: center;
@@ -66,7 +82,7 @@ export default {
   opacity: 1;
 }
 .box {
-    border-left: 4px solid #ffa500 ;
+  border-left: 4px solid #ffa500;
 }
 #place {
   padding: 10px;
@@ -76,5 +92,23 @@ export default {
 }
 .value {
   float: right;
+}
+.btnMaisBotoes {
+  position: fixed;
+  float: bottom;
+  bottom: 15px;
+  right: 15px;
+  z-index: 100;
+}
+.btnMaisBotoesBtn {
+  display: inline-block;
+}
+.btnCircular {
+  border-radius: 50%;
+}
+
+.btnPrincipal {
+  font-size: 20px;
+  padding: 15px;
 }
 </style>
