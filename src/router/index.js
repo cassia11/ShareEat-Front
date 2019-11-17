@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Places from '../components/Places.vue'
 import Plates from '../components/Plates.vue'
-import Cadastro from '../components/Cadastro.vue'
+import Register from '../components/Register.vue'
 
 Vue.use(Router);
 
@@ -20,8 +20,8 @@ export default new Router({
         },
         {
             path: '/:id/cadastrar',
-            name: 'Cadastro',
-            component: Cadastro
+            name: 'Register',
+            component: Register
         }
     ]
 })
