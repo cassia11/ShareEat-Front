@@ -9,7 +9,7 @@
     <div v-for="place in places" :key="place.id">
       <b-row>
         <b-col>
-          <div class="box card bg-dark text-white mb-3">
+          <div class="box card text-white bg-dark mb-3" @click="plates(place.id)">
             <div class="card-body">
               <span class="row text-white">
                 <b>{{ place.name }}</b>
@@ -52,8 +52,10 @@ export default {
   },
   methods: {
     more(identify) {
-      console.log(identify)
-      this.$router.push({ name: 'Plates', paramns: { id: identify}})
+      this.$router.push({ name: 'Register', params: { id: identify}})
+    },
+    plates(identify) {
+      this.$router.push({ name: 'Plates', params: { id: identify}})
     }
   }
 };
