@@ -1,6 +1,6 @@
 <template class="container">
   <div class="container">
-    <img src="../assets/voltar.png"  @click="redirect()" width=40 height=20>
+    <img src="../assets/voltar.png" @click="redirect()" width="40" height="20" />
     <h1 id="title">
       <b>{{ title }}</b>
     </h1>
@@ -40,33 +40,34 @@ import platesService from "../services/plates";
 import placesService from "../services/places";
 export default {
   data: () => ({
-    title: '',
+    title: "",
     form: {
-      name: '',
+      name: "",
       value: null,
-      description: '',
+      description: "",
       places_id: null
     }
   }),
   methods: {
     redirect() {
-      let plates = this.$route.params.id;
-      this.$router.push({ name: "Plates", params: { id: plates } });
+      window.history.go(-1);
     },
     submitForm() {
       let place = this.$route.params.id;
       this.form.places_id = place;
-      platesService.save(this.form).then(response =>{
-        alert(response.data.message)
-        this.clearFields()
-      })
-      .catch(error => {});      
-    }, 
-    clearFields(){
-      this.form.name = ''
-      this.form.value = null
-      this.form.description = ''
-      this.form.places_id = null
+      platesService
+        .save(this.form)
+        .then(response => {
+          alert(response.data.message);
+          this.clearFields();
+        })
+        .catch(error => {});
+    },
+    clearFields() {
+      this.form.name = "";
+      this.form.value = null;
+      this.form.description = "";
+      this.form.places_id = null;
     }
   },
   created() {
