@@ -15,6 +15,11 @@
         <span class="row text-white">{{ plate.description }}</span>
       </div>
     </div>
+    <div class="btnMaisBotoes">
+	<div class="col-3 btnMaisBotoesBtn">
+		<button class="btn btn-warning btnCircular btnPrincipal" name="2"><i class="fa fa-plus"></i></button>
+	</div>
+</div>
   </div>
 </template>
 
@@ -50,7 +55,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #title {
   text-align: center;
@@ -77,4 +81,27 @@ export default {
 .value {
   float: right;
 }
+/* Botão pesquisar e Mais Botões */
+.btnMaisBotoes{
+	position: fixed;
+	float: bottom;
+	bottom: 15px;
+	right: 15px;
+	z-index: 100;
+}
+
+
+ .btnMaisBotoesBtn{
+	display: inline-block;
+}
+
+.btnCircular{
+	border-radius: 50%;
+}
+
+.btnPrincipal{
+	font-size: 20px;
+	padding: 15px;
+}
+
 </style>
