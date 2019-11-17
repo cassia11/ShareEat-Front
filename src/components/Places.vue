@@ -6,29 +6,34 @@
     <p class="text-white text-center" v-if="description == 1">{{ qtd }} lugar cadastrado</p>
     <p class="text-white text-center" v-else>{{ description }} lugares cadastrados</p>
 
-    <div v-for="place in places" :key="place.id">
-      <b-row>
-        <b-col>
-          <div class="box card text-white bg-dark mb-3" @click="plates(place.id)">
-            <div class="card-body">
-              <span class="row text-white">
-                <b>{{ place.name }}</b>
-              </span>
-              <span class="row text-white">{{ place.plates_qtd }} pratos</span>
-            </div>
+    <div class="box card text-white bg-dark mb-3" v-for="place in places" :key="place.id">
+      <div class="card-body" @click="plates(place.id)">
+        <span class="row text-white">
+          <b>{{ place.name }}</b>
+        </span>
+        <span class="row text-white">{{ place.plates_qtd }} pratos</span>
+        <div class="btnMaisBotoes">
+          <div class="col-3 btnMaisBotoesBtn">
+            <button
+              class="btn btn-warning btnCircular btnPrincipal"
+              name="2"
+              @click="more(place.id)"
+            >
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </button>
           </div>
-        </b-col>
+        </div>
+      </div>
+    </div>
 
-        <b-col>
+    <!-- <b-col>
           <b-img
             @click="more(place.id)"
             :src="require('../assets/add.png')"
             class="image"
             alt="Icone de Adicionar mais pratos"
           ></b-img>
-        </b-col>
-      </b-row>
-    </div>
+    </b-col>-->
   </div>
 </template>
 
@@ -52,10 +57,10 @@ export default {
   },
   methods: {
     more(identify) {
-      this.$router.push({ name: 'Register', params: { id: identify}})
+      this.$router.push({ name: "Register", params: { id: identify } });
     },
     plates(identify) {
-      this.$router.push({ name: 'Plates', params: { id: identify}})
+      this.$router.push({ name: "Plates", params: { id: identify } });
     }
   }
 };
@@ -73,5 +78,20 @@ export default {
 .image {
   width: 20%;
   height: 80%;
+}
+
+.btnMaisBotoes {
+  bottom: 15px;
+  right: 15px;
+  z-index: 100;
+}
+.btnCircular {
+  border-radius: 50%;
+}
+
+.btnPrincipal {
+  font-size: 20px;
+  padding: 15px;
+  text-align: right;
 }
 </style>
