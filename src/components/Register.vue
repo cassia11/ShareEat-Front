@@ -1,5 +1,6 @@
 <template class="container">
   <div class="container">
+    <img src="../assets/voltar.png"  @click="redirect()" width=40 height=20>
     <h1 id="title">
       <b>{{ title }}</b>
     </h1>
@@ -48,6 +49,10 @@ export default {
     }
   }),
   methods: {
+    redirect() {
+      let plates = this.$route.params.id;
+      this.$router.push({ name: "Plates", params: { id: plates } });
+    },
     submitForm() {
       let place = this.$route.params.id;
       this.form.places_id = place;
