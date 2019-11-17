@@ -24,7 +24,7 @@
         <p class="text">*A descrição deve conter até 200 caracteres.</p>
         <b-container fluid>
           <div>
-            <b-button block variant="warning" @click="submitForm(), redirect()">
+            <b-button block variant="warning" @click="submitForm()">
               <b>Salvar</b>
             </b-button>
           </div>
@@ -52,10 +52,6 @@ export default {
       let place = this.$route.params.id;
       this.form.places_id = place;
       platesService.save(this.form);
-    },
-    redirect() {
-      let place = this.$route.params.id;
-      this.$router.push({ name: "Plates", params: { id: place } });
     }
   },
   created() {
