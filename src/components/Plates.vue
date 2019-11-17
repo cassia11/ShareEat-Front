@@ -1,16 +1,19 @@
 <template>
   <div class="section">
     <div>
-      <h1 id="title">{{place }}</h1>
+      <h1 id="title">
+        <b>{{place }}</b>
+      </h1>
       <p class="text_plate" v-if="qtd == 1">{{ qtd }} prato</p>
       <p class="text_plate" v-else>{{ qtd }} pratos</p>
     </div>
-    <div id="box" v-for="plate in plates" :key="plate.id">
-      <br />
-      <h3 class="text_plate place">{{ plate.name }}</h3>
-      <p class="text_plate col">{{ plate.value }} R$</p>
-      <p class="text_plate">{{ plate.description }}</p>
-      <br />
+
+    <div class="card text-white bg-dark mb-3" v-for="plate in plates" :key="plate.id">
+      <div class="card-body">
+        <p class="value">R$ {{ plate.value }}</p>
+        <span class="row text-white">{{ plate.name }}</span>
+        <span class="row text-white">{{ plate.description }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -23,7 +26,7 @@ export default {
   name: "Plate",
   data() {
     return {
-      place: '',
+      place: "",
       plates: [],
       qtd: null
     };
@@ -32,15 +35,15 @@ export default {
     platesService
       .getPlates(this.$route.params.id)
       .then(response => {
-        this.plates = response.data
-        this.qtd = response.data.length
+        this.plates = response.data;
+        this.qtd = response.data.length;
       })
       .catch(error => {});
 
     placesService
       .getPlaceId(this.$route.params.id)
       .then(response => {
-        this.place = response.data[0].name
+        this.place = response.data[0].name;
       })
       .catch(error => {});
   }
@@ -49,10 +52,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.section {
-  text-align: center;
-}
 #title {
+  text-align: center;
   font-family: Courier, "Lucida Console", monospace;
   font-weight: bold;
   font-size: 200%;
@@ -77,5 +78,8 @@ export default {
   margin-top: 20px;
   font-weight: bold;
   font-size: medium;
+}
+.value {
+  float: right;
 }
 </style>

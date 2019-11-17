@@ -1,8 +1,8 @@
 <template>
   <div class="text-center">
-    <h1 class="row " id="title">{{ title }}</h1>
+    <h1 class="row" id="title">{{ title }}</h1>
     <p class="row" v-if="description == 1">{{ qtd }} lugar cadastrado</p>
-      <p class="row" v-else>{{ description }} lugares cadastrados</p>
+    <p class="row" v-else>{{ description }} lugares cadastrados</p>
     <div class="row w-50" v-for="place in places" :key="place.id">
       <div class="col-8">
         <span class="row text-white">{{ place.name }}</span>
@@ -26,8 +26,8 @@ export default {
     placesService
       .getPlaces()
       .then(response => {
-        this.places = response.data
-        this.description = response.data.length
+        this.places = response.data;
+        this.description = response.data.length;
       })
       .catch(error => {});
   }

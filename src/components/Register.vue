@@ -1,7 +1,9 @@
 <template class="container">
   <div class="container">
-    <h1 id="title"><b>{{ title }}</b></h1>
-    <br/>
+    <h1 id="title">
+      <b>{{ title }}</b>
+    </h1>
+    <br />
     <div id="box container">
       <b-form>
         <label class="text">Nome do Prato</label>
@@ -22,7 +24,9 @@
         <p class="text">*A descrição deve conter até 200 caracteres.</p>
         <b-container fluid>
           <div>
-            <b-button block variant="warning" @click="submitForm(), redirect()"><b>Salvar</b></b-button>
+            <b-button block variant="warning" @click="submitForm(), redirect()">
+              <b>Salvar</b>
+            </b-button>
           </div>
         </b-container>
       </b-form>
