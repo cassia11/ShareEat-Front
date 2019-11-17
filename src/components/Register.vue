@@ -11,7 +11,7 @@
         <b-input placeholder="Prato" id="name" type="text" required v-model.trim="form.name"></b-input>
         <label class="text">Valor</label>
         <b-input-group prepend="R$ " class="mb-2 mr-sm-2 mb-sm-0">
-          <b-input placeholder="0,00" type="number" id="value" v-model.number="form.value"></b-input>
+          <b-input placeholder=" R$ 0,00" type="number" id="value" v-model.number="form.value"></b-input>
         </b-input-group>
         <label class="text">Descrição do Prato</label>
         <b-textarea
