@@ -51,9 +51,11 @@ export default {
     submitForm() {
       let place = this.$route.params.id;
       this.form.places_id = place;
-      platesService.save(this.form);
-      this.clearFields()
-      alert('Prato adicionado com sucesso!')
+      platesService.save(this.form).then(response =>{
+        alert(response.data.message)
+        this.clearFields()
+      })
+      .catch(error => {});      
     }, 
     clearFields(){
       this.form.name = ''
