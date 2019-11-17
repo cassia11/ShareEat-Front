@@ -39,11 +39,11 @@ import platesService from "../services/plates";
 import placesService from "../services/places";
 export default {
   data: () => ({
-    title: "",
+    title: '',
     form: {
-      name: "",
+      name: '',
       value: null,
-      description: "",
+      description: '',
       places_id: null
     }
   }),
@@ -52,6 +52,14 @@ export default {
       let place = this.$route.params.id;
       this.form.places_id = place;
       platesService.save(this.form);
+      this.clearFields()
+      alert('Prato adicionado com sucesso!')
+    }, 
+    clearFields(){
+      this.form.name = ''
+      this.form.value = null
+      this.form.description = ''
+      this.form.places_id = null
     }
   },
   created() {
