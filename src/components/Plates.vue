@@ -8,10 +8,10 @@
       <p class="text_plate" v-else>{{ qtd }} pratos</p>
     </div>
 
-    <div class="card text-white bg-dark mb-3" v-for="plate in plates" :key="plate.id">
+    <div class="box card text-white bg-dark mb-3" v-for="plate in plates" :key="plate.id">
       <div class="card-body">
-        <p class="value">R$ {{ plate.value }}</p>
-        <span class="row text-white">{{ plate.name }}</span>
+        <p class="value"> <b> R$ {{ plate.value }} </b></p>
+        <span class="row text-white"> <b>{{ plate.name }} </b></span>
         <span class="row text-white">{{ plate.description }}</span>
       </div>
     </div>
@@ -26,7 +26,7 @@ export default {
   name: "Plate",
   data() {
     return {
-      place: "",
+      place: '',
       plates: [],
       qtd: null
     };
@@ -65,13 +65,8 @@ export default {
   color: #ffffff;
   opacity: 1;
 }
-#box {
-  width: 400px;
-  height: 150px;
-  background: #333333 0% 0% no-repeat padding-box;
-  box-shadow: 4px 4px 16px #00000029;
-  border-radius: 8px;
-  opacity: 1;
+.box {
+    border-left: 4px solid #ffa500 ;
 }
 #place {
   padding: 10px;
