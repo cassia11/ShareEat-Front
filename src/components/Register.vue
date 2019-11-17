@@ -1,6 +1,7 @@
 <template class="container">
   <div class="container">
-    <h1 id="title">{{ title }}</h1>
+    <h1 id="title"><b>{{ title }}</b></h1>
+    <br/>
     <div id="box container">
       <b-form>
         <label class="text">Nome do Prato</label>
@@ -20,11 +21,9 @@
         ></b-textarea>
         <p class="text">*A descrição deve conter até 200 caracteres.</p>
         <b-container fluid>
-          <b-row class="mb-3">
-            <b-col md="1.5" class="ml-md-auto">
-              <b-button @click="submitForm(), redirect()" squared class="answer-btn mt-20">Salvar</b-button>
-            </b-col>
-          </b-row>
+          <div>
+            <b-button block variant="warning" @click="submitForm(), redirect()"><b>Salvar</b></b-button>
+          </div>
         </b-container>
       </b-form>
     </div>
@@ -46,13 +45,13 @@ export default {
   }),
   methods: {
     submitForm() {
-      let place  = this.$route.params.id
-      this.form.places_id = place
-      platesService.save(this.form)
+      let place = this.$route.params.id;
+      this.form.places_id = place;
+      platesService.save(this.form);
     },
-    redirect(){
-      let place  = this.$route.params.id
-      this.$router.push({ name: 'Plates', params: { id: place }})
+    redirect() {
+      let place = this.$route.params.id;
+      this.$router.push({ name: "Plates", params: { id: place } });
     }
   },
   created() {
@@ -73,7 +72,7 @@ export default {
   text-align: center;
 }
 #title {
-  font-family: Courier, "Lucida Console", monospace;
+  font: adobe-clean, sans-serif;
   font-weight: bold;
   font-size: 200%;
   color: #f3aa00;

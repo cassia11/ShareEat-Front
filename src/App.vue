@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <h3 id="principal">share eat</h3>
+    <h3 id="principal"><b>share eat</b></h3>
     <router-view/>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   #principal {
     text-align: center;
     font-size: 150%;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-family: adobe-clean, sans-serif;
     color: #FFFFFF;
     opacity: 1;
   }
