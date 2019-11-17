@@ -1,7 +1,7 @@
 <template>
   <div class="section">
-    <div v-for="p in place" :key="p.id">
-      <h1 id="title">{{ p.name }}</h1>
+    <div>
+      <h1 id="title">{{place }}</h1>
       <p class="text_plate" v-if="qtd == 1">{{ qtd }} prato</p>
       <p class="text_plate" v-else>{{ qtd }} pratos</p>
     </div>
@@ -23,7 +23,7 @@ export default {
   name: "Plate",
   data() {
     return {
-      place: {},
+      place: '',
       plates: [],
       qtd: null
     };
@@ -40,7 +40,7 @@ export default {
     placesService
       .getPlaceId(this.$route.params.id)
       .then(response => {
-        this.place = response.data
+        this.place = response.data[0].name
       })
       .catch(error => {});
   }
