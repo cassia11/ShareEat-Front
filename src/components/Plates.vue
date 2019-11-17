@@ -1,5 +1,6 @@
 <template>
   <div class="section">
+        <img src="../assets/voltar.png"  @click="back()" width=40 height=20>
     <div>
       <h1 id="title">
         <b>{{place }}</b>
@@ -58,11 +59,14 @@ export default {
       })
       .catch(error => {});
   },
-  methods: {
+   methods: {
+    back() {
+      this.$router.push({ name: "Places" });
+    },
     redirect() {
       let cadastro = this.$route.params.id;
       this.$router.push({ name: "Register", params: { id: cadastro } });
-    }
+    },
   },
 };
 </script>
