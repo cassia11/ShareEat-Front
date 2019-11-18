@@ -20,11 +20,9 @@
         <span class="row text-white">{{ plate.description }}</span>
       </div>
     </div>
-    <div class="btnMaisBotoes">
-      <div class="col-3 btnMaisBotoesBtn">
-        <button class="btn btn-warning btnCircular btnPrincipal" name="2" @click=" redirect()">
-          <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        </button>
+    <div class="buttonAdd">
+      <div class="col-3 buttonAddBtn">
+          <img class="btn btnCircular btnPrincipal"  src="../assets/add2.png" @click=" redirect()" width="80" />
       </div>
     </div>
   </div>
@@ -97,14 +95,14 @@ export default {
 .value {
   float: right;
 }
-.btnMaisBotoes {
+.buttonAdd {
   position: fixed;
   float: bottom;
   bottom: 15px;
   right: 15px;
   z-index: 100;
 }
-.btnMaisBotoesBtn {
+.buttonAddBtn {
   display: inline-block;
 }
 .btnCircular {
@@ -113,6 +111,6 @@ export default {
 
 .btnPrincipal {
   font-size: 20px;
-  padding: 15px;
+  padding: 14px;
 }
 </style>

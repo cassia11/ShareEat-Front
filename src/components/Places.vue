@@ -6,7 +6,7 @@
     <p class="text-white text-center" v-if="description == 1">{{ description }} lugar cadastrado</p>
     <p class="text-white text-center" v-else>{{ description }} lugares cadastrados</p>
     <div class="div" v-for="place in places" :key="place.id">
-      <img class src="../assets/add.png" @click="more(place.id)" width="60" height="40" />
+      <img  src="../assets/add.png" @click="more(place.id)" width="60" height="40" />
       <div class="box card text-white bg-dark mb-3">
         <div class="card-body" @click="plates(place.id)">
           <span class="row text-white">
