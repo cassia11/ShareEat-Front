@@ -9,18 +9,12 @@
     <div class="div" v-for="place in places" :key="place.id">
       <div class="box card text-white bg-dark mb-3">
         <div class="card-body" @click="plates(place.id)">
-          <div class="data">
-            <span class="row text-white">
-              <b>{{ place.name }}</b>
-            </span>
-            <span class="row text-white">{{ place.plates_qtd }} pratos</span>
-          </div>
+          <span class="row text-white">
+            <b>{{ place.name }}</b>
+          </span>
+          <span class="row text-white">{{ place.plates_qtd }} pratos</span>
+          <img class src="../assets/add.png" @click="more(place.id)" width="60" height="40" />
         </div>
-      </div>
-      <div class="button">
-        <button right class="btn btn-dark btnCircular" name="2" @click="more(place.id)">
-          <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        </button>
       </div>
     </div>
   </div>
@@ -68,15 +62,7 @@ export default {
   width: 20%;
   height: 80%;
 }
-
-.btnCircular {
-  text-align: right;
-  border-radius: 50%;
-  font-size: 20px;
-  padding: 15px;
-}
 .div {
   text-align: right !important;
-  justify-content: space-between;
 }
 </style>
