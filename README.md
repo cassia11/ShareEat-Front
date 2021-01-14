@@ -46,6 +46,5 @@ Para executar o projeto rode o comando abaixo:
 ```bash
 npm run dev
 ```
-Apos este comando a aplicação ira iniciar em [localhost](http://localhost:8080) na porta 8080
+Apóss este comando a aplicação irá iniciar no modo desenvolvimento
 
-## Modo de Uso
